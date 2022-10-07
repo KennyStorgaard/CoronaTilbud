@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Forside - Coronatilbud";
+}
+<header class="masthead text-white">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9">
+                <h1 class="mt-4 mb-3">Coronatilbud.nu</h1>
+                <h3>Støt dit lokale erhversliv i Favrskov kommune</h3>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="py-5">
+    <div class="container">
+        <h1>Samlet overblik</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>
+            Formålet med hjemmesiden er at give et samlet overblik over services og ydelser fra små og mellemstore virksomheder i netop dit lokalområde.
+            På den måde bliver det nemmere for borgere og virksomheder at komme i kontakt med hinanden, i denne svære tid.
+        </p>
+    </div>
+</section>
+
+<section class="py-5 bg-image-full" style="background-image: url('/img/coronavirus.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div style="height: 200px;"></div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <h1>Køb lokale tilbud</h1>
+        <p class="lead">Du finder tilbuddene her på siden enten ved at trykke på corona tilbud oppe i menuen eller her nedenfor. Den egentlige aftale om køb, levering og betaling laves direkte med den enkelte virksomhed via telefon eller hjemmeside..</p>
+        <p class="font-weight-bolder">Vi har 3 mål:</p>
+        <ol>
+            <li>At give lokale borgere en mulighed for at støtte op om områdets erhvervsdrivende</li>
+            <li>At bidrage til det lokale erhvervslivs overlevelse i en svær tid</li>
+            <li>(Forhåbentligt) at hjælpe jer forbrugere til et godt tilbud...</li>
+        </ol>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <h4 class="card-header">Mad & varer</h4>
+                <div class="card-body">
+                    <p>Takeaway</p>
+                    <p>Gaver </p>
+                    <p>Vin</p>
+                    <p>Blomster</p>
+                    <p>Chokolade</p>
+                </div>
+                <div class="card-footer">
+                    @Html.ActionLink("Se mere", "Goods", "Home", null, new { @class = "btn btn-primary btn-sm" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Services</h4>
+                    <p>Udbringning og levering</p>
+                    <p>Lån/leje</p>
+                    <p>Håndværk</p>
+                </div>
+                <div class="card-footer">
+                    @Html.ActionLink("Se mere", "Services", "Home", null, new { @class = "btn btn-primary btn-sm" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card">
+                    <img class="card-img-top" src="~/img/koeb_lokalt.jpg" alt="Card image cap">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

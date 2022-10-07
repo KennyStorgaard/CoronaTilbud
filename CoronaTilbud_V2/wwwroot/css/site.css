@@ -1,0 +1,60 @@
+﻿body {
+    padding-top: 56px;
+    /*background-image: url(../img/Favrskov_kommune_coa_new_2.svg.png);*/
+    background-repeat: no-repeat;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
+html {
+    height: 100%;
+}
+
+header.masthead {
+    position: relative;
+    background-color: #343a40;
+    background: url("../img/favreskov.jpg") no-repeat center center;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+    header.masthead .overlay {
+        position: absolute;
+        background-color: #212529;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.3;
+    }
+
+
+    header.masthead h1 {
+        font-size: 4rem;
+    }
+
+
+.my-footer a {
+    text-decoration: none;
+    color: white;
+}
+
+    .my-footer a:hover {
+        text-decoration: none;
+        color: #4267b2;
+    }
+
+.mypreview-card a {
+    text-decoration: none;
+    color: black;
+}
+
+    .mypreview-card a:hover {
+        color: #4267b2;
+    }

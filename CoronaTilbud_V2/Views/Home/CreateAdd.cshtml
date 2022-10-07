@@ -1,0 +1,95 @@
+﻿@model CoronaTilbud_V2.ViewModels.AddFormViewModel
+@{
+    ViewData["Title"] = "Opret annonce - Coronatilbud";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="container">
+            <div class="jumbotron mt-5">
+                <h1>Opret annonce</h1>
+                <p>
+                    Når du har oprettet din annonce vil du modtage en kvittering på mail med et nummer som skal skrives på når der betales via mobilepay
+                    herved kan vi se om du har betalt. Når du har betalt for din annonce vil vi sørge for at den kan ses på sidne inden for kort tid.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-8 mb-5">
+            <form asp-action="CreateAdd" asp-controller="Home" method="post" id="createaddform">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="@Model.AddForm.CompanyName"></label>
+                        <input asp-for="@Model.AddForm.CompanyName" type="text" class="form-control" id="companyname" required data-validation-required-message="Indtast venligst firma navn.">
+                        <div class="valid-feedback">Gyldig.</div>
+                        <div class="invalid-feedback">Venligst udfyld dette feldt.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="@Model.AddForm.Phone" ></label>
+                        <input asp-for="@Model.AddForm.Phone" type="tel" class="form-control" id="companyphone" pattern="^((\(?\+45\)?)?)(\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2})$" required data-validation-required-message="Indtast venligst tlefon nummer">
+                        <div class="valid-feedback">Gyldig.</div>
+                        <div class="invalid-feedback">Venligst udfyld dette feldt.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="@Model.AddForm.Email" ></label>
+                        <input asp-for="@Model.AddForm.Email" type="email" class="form-control" id="companyemail" required data-validation-required-message="Indtast venligst en gyldig email.">
+                        <div class="valid-feedback">Gyldig.</div>
+                        <div class="invalid-feedback">Venligst udfyld dette feldt.</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="@Model.AddForm.Headline" ></label>
+                        <input asp-for="@Model.AddForm.Headline" type="text" class="form-control" id="headline" required data-validation-required-message="Indtast venligst en overskrit.">
+                        <div class="valid-feedback">Gyldig.</div>
+                        <div class="invalid-feedback">Venligst udfyld dette feldt.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="@Model.AddForm.Message"></label>
+                        <textarea asp-for="@Model.AddForm.Message" placeholder="Her skriver du dit tilbud eller service som du vil tilbyde" rows="8" cols="100" class="form-control" id="coronaoffer" maxlength="250" style="resize:none" required data-validation-required-message="Indtast venligst dit tilbud"></textarea>
+                        <div class="valid-feedback">Gyldig.</div>
+                        <div class="invalid-feedback">Venligst udfyld dette feldt.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Vasdasd</label>
+                    <select asp-for="@Model.SelectedSubject" class="form-control" id="ddkat">
+                      @foreach (var item in Model.AddFormSubject)
+                      {
+                          <option>@item.Title</option>
+                      }
+                    </select>
+                </div>
+                <div class="form-group">
+                        <input asp-for="@Model.AddForm.Attachments" type="file">
+                       
+                </div>
+                <div id="success"></div>
+                <input type="submit" class="btn btn-primary" value="Send annonce" />
+            </form>
+        </div>
+        <div class="col-lg-4 portfolio-item">
+            <label class="font-weight-bold">Forhåndsvisning af annonce</label>
+            <div class="mypreview-card card">
+                <img class="card-img-top" src="http://placehold.it/700x400" alt="Card image">
+                <div class="card-body">
+                    <h2 class="card-title" id="offercompanyname">Firma navn</h2>
+                    <h4 class="card-title" id="offerheadline">Overskrift</h4>
+                    <p class="card-text" id="offerpreviewtext">Corona tilbud - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+                    <p id="offercontactinfo">Kontakt informationer</p>
+                    <p id="offeremail">Email: <a id="emaillink" href="mailto:din@mail.dk">din@mail.dk</a></p>
+                    <p id="offerphone">telefon:</p>
+                    <a id="offerhomepage" href="#">Link til hjemmeside</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/createAdd.js" asp-append-version="true"></script>

@@ -1,0 +1,61 @@
+﻿@model CoronaTilbud_V2.ViewModels.EmailFormViewModel
+@{
+    ViewData["Title"] = "Kontakt - Coronatilbud";
+}
+
+
+
+
+<div class="container">
+    <h1 class="mt-4 mb-3">
+        Kontakt
+    </h1>
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <h3>Send us a Message</h3>
+            <form asp-controller="Home" asp-action="Contact" method="post" name="sentMessage" id="contactForm">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="@Model.EmailForm.Name"></label>
+                        <input asp-for="@Model.EmailForm.Name" type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="@Model.EmailForm.Phone"></label>
+                        <input asp-for="@Model.EmailForm.Phone" type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="@Model.EmailForm.Email"></label>
+                        <input asp-for="@Model.EmailForm.Email" type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select asp-for="@Model.EmailSubjectSelected" class="form-control" id="sel1">
+                        <option>Valg</option>
+                        @foreach (var item in Model.EmailSubjects)
+                        {
+                            <option>@item.Title</option>
+                        }
+                    </select>
+                    <p>@{ ViewData["Selected"] = "fefef";}</p>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label asp-for="@Model.EmailForm.Message"></label>
+                        <textarea asp-for="@Model.EmailForm.Message" rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                    </div>
+                </div>
+
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <input type="submit" class="btn btn-primary" name="name" value="Send" />
+                @* <button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button>*@
+            </form>
+        </div>
+    </div>
+
+</div>
